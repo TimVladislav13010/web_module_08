@@ -1,7 +1,7 @@
 from pathlib import Path
 from json import load
 
-from part_1.models import Authors, Quotes
+from models import Authors, Quotes
 
 """
 Uploading json files to a cloud database Atlas MongoDB.

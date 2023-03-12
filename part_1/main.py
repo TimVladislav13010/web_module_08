@@ -2,7 +2,7 @@ from json import load
 from pathlib import Path
 
 from app_parser import arg_parser
-from part_1.create import create_authors_quotes
+from create import create_authors_quotes
 
 arg = arg_parser()
 

@@ -1,8 +1,8 @@
 from mongoengine import *
 
-from part_1.db import url
+from db import url
 
-connect(host=url, ssl=True)
+con = connect(host=url, ssl=True)
 
 
 class Authors(Document):
