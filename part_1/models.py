@@ -1,6 +1,7 @@
 from mongoengine import *
+from part_1.db import url
 
-connect(host="mongodb+srv://userweb9:567234@cluster0.lv8szqr.mongodb.net/test", ssl=True)
+connect(host=url, ssl=True)
 
 
 class Authors(Document):
