@@ -6,6 +6,10 @@ from part_1.create import create_authors_quotes
 
 arg = arg_parser()
 
+"""
+Scripts for uploading json files to a cloud database Atlas MongoDB.
+"""
+
 
 def main():
     if arg.add_data in "add_data":
