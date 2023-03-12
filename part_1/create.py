@@ -3,6 +3,9 @@ from json import load
 
 from part_1.models import Authors, Quotes
 
+"""
+Uploading json files to a cloud database Atlas MongoDB.
+"""
 
 PATH_AUTHORS = Path("./authors.json")
 PATH_QUOTES = Path("./quotes.json")
