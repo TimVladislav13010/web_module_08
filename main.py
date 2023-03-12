@@ -17,6 +17,8 @@ def main():
 
         create_authors_quotes(authors, quotes)
 
+        print(f"Uploaded to database successfully.")
+
 
 if __name__ == "__main__":
     main()

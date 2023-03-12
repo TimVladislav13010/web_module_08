@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 from json import load
 
-from models import Authors, Quotes
+from part_1.models import Authors, Quotes
 
 
 PATH_AUTHORS = Path("./authors.json")
