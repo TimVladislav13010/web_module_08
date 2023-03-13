@@ -17,14 +17,47 @@ def name(user_name: str) -> str:
             for quote in quotes:
                 if author.id.__str__() in quote.author.id.__str__():
                     return quote.quote
+    return f"No matches."
 
 
-def tag(user_tag: str):
-    pass
+def tag(user_tag: str) -> list | str:
+    """
+    tag:life — знайти та повернути список цитат для тега life;
+    :param user_tag:
+    :return:
+    """
+    result = list()
+
+    quotes = Quotes.objects()
+
+    for quote in quotes:
+        for value in quote.tags:
+            if value in user_tag:
+                result.append(quote.quote)
+
+    if len(result) == 0:
+        return f"No matches."
+
+    return result
 
 
 def tags(user_tags: str):
-    pass
+    """
+    tags:life,live — знайти та повернути список цитат, де є теги life або live (примітка: без пробілів між тегами life, live);
+    :param user_tags:
+    :return:
+    """
+    tags_ = user_tags.split(",")
+    result = set()
+
+    for tag_ in tags_:
+        tags_ = tag(tag_)
+        if "No matches." in tags_:
+            continue
+        for value in tags_:
+            result.add(value)
+
+    return list(result)
 
 
 def exits(_):
