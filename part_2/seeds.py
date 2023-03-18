@@ -8,7 +8,7 @@ fake = faker.Faker()
 QUANTITY_CONTACTS = 10
 
 
-def create_contacts(quantity):
+def create_contacts(quantity=QUANTITY_CONTACTS):
     """
     Create contacts in Atlas MongoDB.
     :param quantity:
@@ -24,7 +24,7 @@ def create_contacts(quantity):
 
 
 def main():
-    create_contacts(QUANTITY_CONTACTS)
+    create_contacts()
 
 
 if __name__ == "__main__":
