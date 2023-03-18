@@ -1,6 +1,19 @@
 from models import Authors, Quotes
 
 
+"""
+Search script in a cloud database Atlas MongoDB.
+
+start -> in terminal: py search_script.py
+
+commands: 
+    name: Steve Martin — знайти та повернути список всіх цитат автора Steve Martin;
+    tag:life — знайти та повернути список цитат для тега life;
+    tags:life,live — знайти та повернути список цитат, де є теги life або live (примітка: без пробілів між тегами life, live);
+    exit — завершити виконання скрипту;
+"""
+
+
 def name(user_name: str) -> str:
     """
     name: Steve Martin — знайти та повернути список всіх цитат автора Steve Martin.

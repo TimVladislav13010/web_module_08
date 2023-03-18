@@ -4,7 +4,7 @@ from json import load
 from models import Authors, Quotes
 
 """
-Uploading json files to a cloud database Atlas MongoDB.
+Create authors and quotes in json files.
 """
 
 PATH_AUTHORS = Path("./authors.json")

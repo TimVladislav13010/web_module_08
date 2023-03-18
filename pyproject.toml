@@ -9,6 +9,7 @@ packages = [{include = "web_module_08"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 mongoengine = "^0.27.0"
+faker = "^17.6.0"
 
 
 [build-system]
