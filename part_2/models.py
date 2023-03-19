@@ -8,4 +8,6 @@ con = connect(host=url, ssl=True)
 class Contacts(Document):
     fullname = StringField(required=True, max_length=100)
     email = StringField(required=True, max_length=100)
+    number = StringField(required=True, max_length=100)
     sent = BooleanField(required=True, default=False)
+    best_way = StringField(required=True, max_length=100)

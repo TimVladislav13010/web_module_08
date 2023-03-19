@@ -1,11 +1,13 @@
 import faker
 
+from random import choice
+
 from models import Contacts
 
 
 fake = faker.Faker()
 
-QUANTITY_CONTACTS = 10
+QUANTITY_CONTACTS = 30
 
 
 def create_contacts(quantity=QUANTITY_CONTACTS):
@@ -18,9 +20,16 @@ def create_contacts(quantity=QUANTITY_CONTACTS):
         contact = Contacts(
             fullname=fake.name(),
             email=fake.email(),
-            sent=False
+            sent=False,
+            number=str(fake.phone_number()),
+            best_way=str(create_best_way())
         )
         contact.save()
+
+
+def create_best_way() -> str:
+    best_way = ["sms", "email"]
+    return choice(best_way)
 
 
 def main():
