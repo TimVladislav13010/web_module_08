@@ -1,3 +1,8 @@
+import timeit
+
+import redis
+from redis_lru import RedisLRU
+
 from models import Authors, Quotes
 
 
@@ -5,6 +10,8 @@ from models import Authors, Quotes
 Search script in a cloud database Atlas MongoDB.
 
 start -> in terminal: py search_script.py
+
+reid_lru caching is implemented
 
 commands: 
     name: Steve Martin — знайти та повернути список всіх цитат автора Steve Martin;
@@ -14,6 +21,11 @@ commands:
 """
 
 
+client = redis.StrictRedis(host="localhost", port=6379, password=None)
+cache = RedisLRU(client)
+
+
+@cache
 def name(user_name: str) -> str:
     """
     name: Steve Martin — знайти та повернути список всіх цитат автора Steve Martin.
@@ -33,6 +45,7 @@ def name(user_name: str) -> str:
     return f"No matches."
 
 
+@cache
 def tag(user_tag: str) -> list | str:
     """
     tag:life — знайти та повернути список цитат для тега life;
@@ -54,6 +67,7 @@ def tag(user_tag: str) -> list | str:
     return result
 
 
+@cache
 def tags(user_tags: str):
     """
     tags:life,live — знайти та повернути список цитат, де є теги life або live (примітка: без пробілів між тегами life, live);
@@ -97,10 +111,11 @@ def main():
     while True:
         try:
             user_inp = input(f"Enter command: value...")
-
+            start = timeit.default_timer()
             result = handler_command(user_inp)
 
             print(result)
+            print(f"Time: {timeit.default_timer() - start}")
 
         except KeyboardInterrupt as er:
             print(er)
