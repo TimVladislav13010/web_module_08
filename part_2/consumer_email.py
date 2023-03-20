@@ -10,7 +10,7 @@ def send_email(contact_id):
     contact = Contacts.objects(id=contact_id)  # id=contact_id
     for data in contact:
         if not data.sent:
-            time.sleep(1)
+            # time.sleep(1)
             contact.update(sent=True)
             print(f"Email has been sanded contact: id {data.id}, fullname {data.fullname}, email {data.email} ")
 
